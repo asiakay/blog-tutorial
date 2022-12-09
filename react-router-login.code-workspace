@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../react-router-login"
+		},
+		{
+			"path": "../../remix-data-flow"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
