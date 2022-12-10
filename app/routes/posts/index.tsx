@@ -1,5 +1,7 @@
 import { json } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { 
+  Link, 
+  useLoaderData } from "@remix-run/react";
 
 import { getPosts } from "~/models/post.server";
 
