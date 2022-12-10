@@ -8,8 +8,22 @@ export async function createPost(
   return prisma.post.create({ data: post });
 }
 
+export async function updatePost(
+  slug: string,
+  post: Pick<Post, "slug" | "title" | "markdown">
+){
+  return prisma.post.update({data: post, where: {slug}});
+}
+
 export async function getPosts() {
   return prisma.post.findMany();
+}
+
+export async function deletePost(slug: string, 
+  post: Pick<Post, "slug" | "title" | "markdown">
+  ){
+  return prisma.post.deleteMany({ where: { slug } });
+
 }
 
 export async function getPost(slug: string) {
