@@ -57,8 +57,11 @@ export default function NewPost() {
     const transition = useTransition();
     const isCreating = Boolean(transition.submission);
   return (
+   
     <Form method="post">
       <p>
+      <hr />
+      
         <label>
           Post Title:{" "}
           {errors?.title ? (

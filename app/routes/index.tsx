@@ -63,7 +63,10 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="mx-auto mt-16 max-w-7xl text-center">
+
+{/* BLOG POSTS ROUTE LINKS STARTS */}
+
+  <div className="mx-auto mt-16 max-w-7xl text-center">
   <Link
     to="/posts"
     className="text-xl text-blue-600 underline"
@@ -72,6 +75,10 @@ export default function Index() {
   </Link>
 
 </div>
+
+{/* BLOG POSTS ROUTE LINKS ENDS */}
+
+
 
         <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
           <div className="mt-6 flex flex-wrap justify-center gap-8">
