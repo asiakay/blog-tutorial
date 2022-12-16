@@ -10,12 +10,17 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import styles from "./tailwind.css"
+
+import styles from "./styles/app.css"
+
+
 import { getUser } from "./session.server";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
 };
+
+
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -27,6 +32,25 @@ export async function loader({ request }: LoaderArgs) {
   return json({
     user: await getUser(request),
   });
+}
+
+
+export default function App() {
+  return (
+    
+    <html lang="en" className="h-full">
+      <head>
+        <Meta />
+        <Links />
+      </head>
+      <body className="h-full">
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  );
 }
 
 export function ErrorBoundary({ error }) {
@@ -47,21 +71,3 @@ export function ErrorBoundary({ error }) {
 }
 
 
-
-export default function App() {
-  return (
-    
-    <html lang="en" className="h-full">
-      <head>
-        <Meta />
-        <Links />
-      </head>
-      <body className="h-full">
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-  );
-}

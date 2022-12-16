@@ -10,17 +10,17 @@ export const loader = async () => {
   };
 
 
-  function NavList() {
+/*   function NavList() { */
     // This styling will be applied to a <NavLink> when the
     // route that it links to is currently selected.
 /*     const activeStyle = {
       textDecoration: "underline",
     }; */
-    const activeClassName = "underline";
+    /* const activeClassName = "underline";
     return (
       <nav>
         <ul>
-{/*           <li>
+          <li>
             <NavLink
               to="messages"
               style={({ isActive }) =>
@@ -29,7 +29,7 @@ export const loader = async () => {
             >
               Messages
             </NavLink>
-          </li> */}
+          </li> 
           <li>
             <NavLink
               to="tasks"
@@ -57,7 +57,7 @@ export const loader = async () => {
       </nav>
     );
   }
-
+ */
   
 export default function Posts() {
     const { posts } = useLoaderData<typeof loader>();

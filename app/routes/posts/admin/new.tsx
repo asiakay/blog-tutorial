@@ -2,6 +2,7 @@ import type { ActionArgs } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { 
     Form, 
+    Outlet,
     useActionData,
     useTransition,
 } from "@remix-run/react";
@@ -60,10 +61,9 @@ export default function NewPost() {
    
     <Form method="post">
       <p>
-      <hr />
-      
+       
         <label>
-          Post Title:{" "}
+          Post Title : {" "}
           {errors?.title ? (
             <em className="text-red-600">{errors.title}</em>
           ) : null}
@@ -99,7 +99,7 @@ export default function NewPost() {
         <br />
         <textarea
           id="markdown"
-          rows={20}
+          rows= "20"
           name="markdown"
           className={`${inputClassName} font-mono`}
         />
@@ -114,6 +114,7 @@ export default function NewPost() {
           {isCreating ? "Creating..." : "Create Post"}
         </button>
       </p>
+      <Outlet />
     </Form>
   );
 }
