@@ -18,13 +18,13 @@ export default function PostAdmin() {
       <h1 className="my-6 mb-2 border-b-2 text-center text-3xl">
         Blog Admin
       </h1>
-      <div className="grid grid-cols-4 gap-6">
-        <nav className="col-span-4 md:col-span-1">
+      <div className="grid grid-cols-4 gap-6 m-5">
+        <nav className="col-span-4 md:col-span-1">Sidebar
           <ul>
             {posts.map((post) => (
               <li key={post.slug}>
                 <Link
-                  to={post.slug}
+                  to={`/posts/${post.slug}`}
                   className="text-blue-600 underline"
                 >
                   {post.title}
@@ -33,7 +33,7 @@ export default function PostAdmin() {
             ))}
           </ul>
         </nav>
-        <main className="col-span-4 md:col-span-3">
+        <main className="col-span-4 md:col-span-3">Main Section
           <Outlet />
         </main>
       </div>

@@ -128,17 +128,29 @@ function Layout ({ children }){
     <div>
       <header>
 
-        <div>
+        <div className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
           <Link to="/" title="Remix">
             <RemixLogo />
           </Link>
           <nav aria-label="Main navigation">
-            <ul>
+    <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div className="text-sm lg:flex-grow">
+
+            
+              <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/">Home</Link>
+              <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/posts">Blogs</Link>
+              <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/posts/admin">Admin</Link>
+
+            
+
+{/*             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/posts">Blogs</Link></li>
-              <li><Link to="/admin">Admin</Link></li>
+              <li><Link to="/posts/admin">Admin</Link></li>
 
-            </ul>
+            </ul> */}
+            </div>
+            </div>
           </nav>
         </div>
       </header>
