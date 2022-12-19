@@ -19,6 +19,10 @@ export default function PostAdmin() {
         Blog Admin
       </h1>
       <div className="grid grid-cols-4 gap-6 m-5">
+
+
+
+        
         <nav className="col-span-4 md:col-span-1">Sidebar
           <ul>
             {posts.map((post) => (

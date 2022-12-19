@@ -13,20 +13,24 @@ import {
 
 import { useCatch } from "@remix-run/react";
 
-import styles from "./styles/app.css"
+//import styles from "./styles/app.css"
 
 
 import { getUser } from "./session.server";
 
-export const links: LinksFunction = () => {
+/* export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
+}; */
+
+export const links: LinksFunction = () => {
+  return [
+    { 
+      rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" }];
 };
-
-
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "Remix Notes",
+  title: "Remix Bootstrap Blog",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -109,60 +113,76 @@ function Document({ children, title }){
       <head>
       <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
+        {title ? <title>{title}</title> : null}
+
       </head>
       <body>
         {children}
         <ScrollRestoration />
         <Scripts />
         {process.env.NODE_ENV === "development" && <LiveReload />}
+                {/* Bootstrap JS CDN */}
+                <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossOrigin="anonymous"
+        ></script>
       </body>
     </html>
-  )
+  );
 }
 
 function Layout ({ children }){
   return (
-    <div>
-      <header>
+    <>
+      {/* Navbar */}
+      <nav className="navbar navbar-expand-lg navbar-light bg-info">
 
-        <div className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-          <Link to="/" title="Remix">
+    <div className="container">
+    <Link to="/" title="Remix">
             <RemixLogo />
           </Link>
-          <nav aria-label="Main navigation">
-    <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <div className="text-sm lg:flex-grow">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+                        <span className="navbar-toggler-icon"></span>
 
-            
-              <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/">Home</Link>
-              <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/posts">Blogs</Link>
-              <Link className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" to="/posts/admin">Admin</Link>
-
-            
-
-{/*             <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/posts">Blogs</Link></li>
-              <li><Link to="/posts/admin">Admin</Link></li>
-
-            </ul> */}
-            </div>
-            </div>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
+          <li className="nav-item">
+          <Link className="nav-link" to="/posts/admin">Admin</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/">Home</Link>
+          </li>
+          <li className="nav-item">
+          <Link className="nav-link" to="/posts">Blogs</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/notes">Notes</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/en" className="nav-link">English</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/ps" className="nav-link">Persian</Link>
+          </li>
+          </ul>
+          </div>
+          </div>
           </nav>
-        </div>
-      </header>
-      <div>
-        <div>{children}</div>
-      </div>
-      <footer>
-        <div>
-          <p>&copy;</p>
-        </div>
-      </footer>
-    </div>
+          <div className="container p-4">
+            {children}</div>
+    </>
   );
 }
 

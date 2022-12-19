@@ -2,13 +2,8 @@ import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link,useLoaderData, Outlet } from "@remix-run/react";
 import { marked } from "marked";
-
 import invariant from "tiny-invariant";
-
 import { getPost, getPosts } from "~/models/post.server";
-
-
-
 
 export const loader = async ({ params }: LoaderArgs) => {
     invariant(params.slug, `params.slug is required`);

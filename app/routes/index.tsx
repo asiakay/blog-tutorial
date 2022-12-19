@@ -1,8 +1,35 @@
 import { Link } from "@remix-run/react";
+// import { redirect } from '@remix-run/server-runtime';
+//import { useOptionalUser } from "~/utils";
 
-import { useOptionalUser } from "~/utils";
+/* export function loader({ request }) {
+  let languageHeader = request.headers.get('accept-language');
+  let locale = languageHeader?.split(',')[0] || 'en';
+  let language = locale.split('-')[0];
 
-export default function Index() {
+  if (!['en', 'es'].includes(language)) {
+    language = 'en';
+  }
+
+  return redirect(`/${language}`);
+} */
+
+export default function Index(){
+  return(<>
+<div className="card" >
+ <img src="https://raw.githubusercontent.com/asiakay/artphotography/main/images/purplebloom.jpeg" alt="..." />
+  <div className="card-body">
+    <h5 className="card-title">Card title</h5>
+    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <Link to="#" className="btn btn-primary">Go somewhere</Link>
+  </div>
+</div>
+</>
+
+  )
+}
+
+/* export default function Index() {
   const user = useOptionalUser();
   return (
     <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
@@ -64,7 +91,7 @@ export default function Index() {
         </div>
 
 
-{/* BLOG POSTS ROUTE LINKS STARTS */}
+/* BLOG POSTS ROUTE LINKS STARTS 
 
   <div className="mx-auto mt-16 max-w-7xl text-center">
   <Link
@@ -76,11 +103,11 @@ export default function Index() {
 
 </div>
 
-{/* BLOG POSTS ROUTE LINKS ENDS */}
+{/* BLOG POSTS ROUTE LINKS ENDS */
 
 
 
-        <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
+     /*    <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             {[
               {
@@ -153,3 +180,4 @@ export default function Index() {
     </main>
   );
 }
+ */
