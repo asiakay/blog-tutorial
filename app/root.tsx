@@ -9,8 +9,10 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  Form
 } from "@remix-run/react";
 
+import { BsFillPlusCircleFill, BsXLg } from 'react-icons/bs';
 import { useCatch } from "@remix-run/react";
 
 //import styles from "./styles/app.css"
@@ -138,48 +140,6 @@ function Layout ({ children }){
   return (
     <>
       {/* Navbar */}
-     {/*  <nav className="navbar navbar-expand-lg navbar-light bg-info">
-
-    <div className="container">
-    <Link to="/" title="Remix">
-            <RemixLogo />
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-                        <span className="navbar-toggler-icon"></span>
-
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
-          <li className="nav-item">
-          <Link className="nav-link" to="/posts/admin">Admin</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/">Home</Link>
-          </li>
-          <li className="nav-item">
-          <Link className="nav-link" to="/posts">Blogs</Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/notes">Notes</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/en" className="nav-link">English</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/ps" className="nav-link">Persian</Link>
-          </li>
-          </ul>
-          </div>
-          </div>
-          </nav> */}
           <GlobalNavigation />
           <div className="container p-4">
             {children}
@@ -189,56 +149,45 @@ function Layout ({ children }){
 }
 
 function GlobalNavigation(){
-  return (
-    <>
-
-
-    <nav className="navbar navbar-expand-lg navbar-light bg-info">
-
-    <div className="container">
-    <Link to="/" title="Remix">
-            <RemixLogo />
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-                        <span className="navbar-toggler-icon"></span>
-
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
-      
+return (
+<div>
+<nav className="navbar bg-light fixed-top">
+  <div className="container-fluid">
+    <Link className="navbar-brand" to="#"><RemixLogo /></Link>
+    <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span className="navbar-toggler-icon"><BsFillPlusCircleFill /></span>
+    </button>
+    <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div className="offcanvas-header">
+        <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><BsXLg /></button>
+      </div>
+      <div className="offcanvas-body">
+        <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li className="nav-item">
-            <Link className="nav-link" to="/">Home</Link>
+            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
           </li>
           <li className="nav-item">
           <Link className="nav-link" to="/posts">Blogs</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/notes">Notes</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/en" className="nav-link">English</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/ps" className="nav-link">Persian</Link>
+          <Link className="nav-link" to="/notes">Notes</Link>
           </li>
           <li className="nav-item">
           <Link className="nav-link" to="/posts/admin">Admin</Link>
           </li>
-          </ul>
-          </div>
-          </div>
-          </nav>
-          </>
-  );
-
+     
+        </ul>
+        <Form className="d-flex mt-3" role="search">
+          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <button className="btn btn-outline-success" type="submit">Search</button>
+        </Form>
+      </div>
+    </div>
+  </div>
+</nav>
+</div>
+);
 }
 
 function RemixLogo(props) {
