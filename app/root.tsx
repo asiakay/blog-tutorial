@@ -15,7 +15,7 @@ import {
 import { BsFillPlusCircleFill, BsXLg } from 'react-icons/bs';
 import { useCatch } from "@remix-run/react";
 
-//import styles from "./styles/app.css"
+import styles from "./styles/global.css"
 
 
 import { getUser } from "./session.server";
@@ -27,7 +27,11 @@ import { getUser } from "./session.server";
 export const links: LinksFunction = () => {
   return [
     { 
-      rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" }];
+      rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" },
+      {
+        rel: "stylesheet", href: styles
+      }
+    ];
 };
 
 export const meta: MetaFunction = () => ({
@@ -141,7 +145,8 @@ function Layout ({ children }){
     <>
       {/* Navbar */}
           <GlobalNavigation />
-          <div className="container p-4">
+
+          <div className="container p-4 mt-5">
             {children}
             </div>
     </>

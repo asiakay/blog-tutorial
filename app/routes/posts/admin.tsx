@@ -24,18 +24,18 @@ export default function PostAdmin() {
 
         
         <nav className="col-span-4 md:col-span-1">Sidebar
-          <ul>
+          <div>
             {posts.map((post) => (
-              <li key={post.slug}>
+              <div key={post.slug}>
                 <Link
                   to={`/posts/${post.slug}`}
                   className="text-blue-600 underline"
                 >
                   {post.title}
                 </Link>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </nav>
         <main className="col-span-4 md:col-span-3">Main Section
           <Outlet />

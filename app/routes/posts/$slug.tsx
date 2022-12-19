@@ -25,18 +25,18 @@ export default function PostSlug() {
       </h1>
       <div className="grid grid-cols-4 gap-6 m-5">
       <nav className="col-span-4 md:col-span-1">Recent Posts
-      <ul>
+      <div>
         {posts.map((post) => (
-          <li key={post.slug}>
+          <div key={post.slug} className="">
             <Link
               to={`/posts/${post.slug}`}
               className="text-blue-600 underline"
             >
               {post.title}
             </Link>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
 </nav>
 <main className="col-span-4 md:col-span-3">
 <Outlet/>
