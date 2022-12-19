@@ -138,7 +138,7 @@ function Layout ({ children }){
   return (
     <>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-info">
+     {/*  <nav className="navbar navbar-expand-lg navbar-light bg-info">
 
     <div className="container">
     <Link to="/" title="Remix">
@@ -179,11 +179,66 @@ function Layout ({ children }){
           </ul>
           </div>
           </div>
-          </nav>
+          </nav> */}
+          <GlobalNavigation />
           <div className="container p-4">
-            {children}</div>
+            {children}
+            </div>
     </>
   );
+}
+
+function GlobalNavigation(){
+  return (
+    <>
+
+
+    <nav className="navbar navbar-expand-lg navbar-light bg-info">
+
+    <div className="container">
+    <Link to="/" title="Remix">
+            <RemixLogo />
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+                        <span className="navbar-toggler-icon"></span>
+
+          </button>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
+      
+          <li className="nav-item">
+            <Link className="nav-link" to="/">Home</Link>
+          </li>
+          <li className="nav-item">
+          <Link className="nav-link" to="/posts">Blogs</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/notes">Notes</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/en" className="nav-link">English</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/ps" className="nav-link">Persian</Link>
+          </li>
+          <li className="nav-item">
+          <Link className="nav-link" to="/posts/admin">Admin</Link>
+          </li>
+          </ul>
+          </div>
+          </div>
+          </nav>
+          </>
+  );
+
 }
 
 function RemixLogo(props) {
