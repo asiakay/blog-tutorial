@@ -1,3 +1,4 @@
+
 import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link,useLoaderData, Outlet } from "@remix-run/react";
@@ -16,6 +17,8 @@ export const loader = async ({ params }: LoaderArgs) => {
     const posts = await getPosts()
     return json({ post, html, posts });};
 
+
+
 export default function PostSlug() {
     const { post, html, posts } = useLoaderData<typeof loader>();
     return (
@@ -24,7 +27,12 @@ export default function PostSlug() {
       {post.title}
       </h1>
       <div className="grid grid-cols-4 gap-6 m-5">
-      <nav className="col-span-4 md:col-span-1">Recent Posts
+      <div className="row">
+      <div className="col-4"> 
+
+      <nav className="col-span-4 md:col-span-1">
+        <h3>Recent Posts
+          </h3>
       <div>
         {posts.map((post) => (
           <div key={post.slug} className="">
@@ -38,11 +46,16 @@ export default function PostSlug() {
         ))}
       </div>
 </nav>
+</div>
+
+<div className="col-8">
 <main className="col-span-4 md:col-span-3">
 <Outlet/>
 <div dangerouslySetInnerHTML={{ __html: html }} />
 </main>
 </div>
+</div>
+    </div>
     </div>
   );
 }

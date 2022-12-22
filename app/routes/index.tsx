@@ -1,6 +1,8 @@
 import { Link } from "@remix-run/react";
+//import { json, redirect } from "@remix-run/node";
+import { useOptionalUser } from "~/utils";
+
 // import { redirect } from '@remix-run/server-runtime';
-//import { useOptionalUser } from "~/utils";
 
 /* export function loader({ request }) {
   let languageHeader = request.headers.get('accept-language');
@@ -15,18 +17,82 @@ import { Link } from "@remix-run/react";
 } */
 
 export default function Index(){
+  const user = useOptionalUser();
+
   return(<>
-<div className="card" >
- <img src="https://raw.githubusercontent.com/asiakay/artphotography/main/images/seaport_bird2.jpeg" alt="..." />
+
+<div className="card">
+<div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
+  <div className="carousel-inner">
+    <div className="carousel-item active" data-bs-interval="10000">
+      <img src="https://raw.githubusercontent.com/asiakay/artphotography/main/images/encore.jpeg" className="d-block w-100" alt="..."/>
+    </div>
+    <div className="carousel-item" data-bs-interval="2000">
+      <img src="https://raw.githubusercontent.com/asiakay/artphotography/main/images/seaport_bird.jpeg" className="d-block w-100" alt="..."/>
+    </div>
+    <div className="carousel-item">
+      <img src="https://raw.githubusercontent.com/asiakay/artphotography/main/images/commuterrail.jpeg" className="d-block w-100" alt="..."/>
+    </div>
+  </div>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
   <div className="card-body">
     <h5 className="card-title">Card title</h5>
     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <Link to="#" className="btn btn-primary">Go somewhere</Link>
+
+    <div className="d-grid gap-2">
+   
+   
+   {user ? (
+
+<Link
+                   to="/notes"
+                   className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-yellow-700 shadow-sm hover:bg-yellow-50 sm:px-8"
+                 >
+                   View Notes for {user.email}
+                 </Link>
+
+                 ) : (
+                   <div className="d-grid gap-2">
+
+
+<Link 
+   to="/login"
+   className="btn btn-primary"
+   role="button"
+   >Log In
+   </Link> 
+
+<Link 
+to="/join"
+className="btn btn-primary"
+>
+ Sign Up
+ </Link>
+</div>
+   )}
+
+
+
+</div>
+
+
+
   </div>
 </div>
 </>
 
-  )
+  );
 }
 
 /* export default function Index() {
