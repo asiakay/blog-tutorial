@@ -87,14 +87,13 @@ export default function Join() {
 
   return (
     <div className="flex min-h-full flex-col justify-center">
-      <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
-          <div>
+        <div className="mb-3">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="form-label"
             >
-              Email address
+              Email address*
             </label>
             <div className="mt-1">
               <input
@@ -107,8 +106,9 @@ export default function Join() {
                 autoComplete="email"
                 aria-invalid={actionData?.errors?.email ? true : undefined}
                 aria-describedby="email-error"
-                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+                className="form-control"
               />
+
               {actionData?.errors?.email && (
                 <div className="pt-1 text-red-700" id="email-error">
                   {actionData.errors.email}
@@ -144,12 +144,17 @@ export default function Join() {
           </div>
 
           <input type="hidden" name="redirectTo" value={redirectTo} />
+          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+
           <button
             type="submit"
-            className="w-full rounded bg-blue-500  py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400"
+            className="btn btn-primary"
           >
             Create Account
           </button>
+          </div>
+          <div id="emailHelp" className="form-text">*We'll never share your data.</div>
+
           <div className="flex items-center justify-center">
             <div className="text-center text-sm text-gray-500">
               Already have an account?{" "}
@@ -166,6 +171,5 @@ export default function Join() {
           </div>
         </Form>
       </div>
-    </div>
   );
 }

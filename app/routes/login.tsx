@@ -81,12 +81,11 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-full flex-col justify-center">
-      <div className="mx-auto w-full max-w-md px-8">
-        <Form method="post" className="space-y-6">
-          <div>
+             <Form method="post" className="space-y-6">
+             <div className="mb-3">
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="form-label"
             >
               Email address
             </label>
@@ -101,8 +100,9 @@ export default function LoginPage() {
                 autoComplete="email"
                 aria-invalid={actionData?.errors?.email ? true : undefined}
                 aria-describedby="email-error"
-                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+                className="form-control"
               />
+
               {actionData?.errors?.email && (
                 <div className="pt-1 text-red-700" id="email-error">
                   {actionData.errors.email}
@@ -138,12 +138,15 @@ export default function LoginPage() {
           </div>
 
           <input type="hidden" name="redirectTo" value={redirectTo} />
+          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+
           <button
             type="submit"
-            className="w-full rounded bg-blue-500  py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400"
+            className="btn btn-primary"
           >
             Log in
           </button>
+          </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
@@ -174,6 +177,5 @@ export default function LoginPage() {
           </div>
         </Form>
       </div>
-    </div>
   );
 }
