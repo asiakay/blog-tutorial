@@ -26,7 +26,7 @@ Blog Posts </h1>
 <nav className="col-span-4 md:col-span-1">
   <h3>Recent Posts</h3>
           <div>
-            {posts.map((post) => (
+            {[...posts].reverse().map((post) => (
               <div key={post.slug}>
                 <Link
                   to={`/posts/${post.slug}`}

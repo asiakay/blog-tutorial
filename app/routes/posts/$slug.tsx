@@ -34,7 +34,7 @@ export default function PostSlug() {
         <h3>Recent Posts
           </h3>
       <div>
-        {posts.map((post) => (
+        {[...posts].reverse().map((post) => (
           <div key={post.slug} className="">
             <Link
               to={`/posts/${post.slug}`}
