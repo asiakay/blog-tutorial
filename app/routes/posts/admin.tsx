@@ -5,14 +5,20 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 
-import { getPosts } from "~/models/post.server";
+import { getPostListings } from "~/models/post.server";
+import { requireAdminUser } from "~/session.server";
 
-export const loader = async () => {
-  return json({ posts: await getPosts() });
+type LoaderData = {
+  posts: Awaited<ReturnType<typeof getPostListings>>;
 };
 
-export default function PostAdmin() {
-  const { posts } = useLoaderData<typeof loader>();
+export const loader = async ({ request }) => {
+  await requireAdminUser(request);
+  return json<LoaderData>({ posts: await getPostListings() });
+};
+
+export default function AdminRoute() {
+  const { posts } = useLoaderData() as LoaderData;
   return (
     <div className="mx-auto max-w-4xl">
       <h1 className="my-6 mb-2 border-b-2 text-center text-3xl">

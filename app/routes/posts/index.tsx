@@ -22,11 +22,9 @@ Blog Posts </h1>
 <div className="grid grid-cols-4 gap-6 m-5"> 
 <div className="row">
 
-<div className="col-4"> 
-<nav className="col-span-4 md:col-span-1">
-  <h3>Recent Posts</h3>
+<div className="col-4"> <nav className="col-span-4 md:col-span-1"><h3>Recent Posts</h3>
           <div>
-            {[...posts].reverse().map((post) => (
+            {posts.map((post) => (
               <div key={post.slug}>
                 <Link
                   to={`/posts/${post.slug}`}

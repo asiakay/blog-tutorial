@@ -19,10 +19,8 @@ export async function getPosts() {
   return prisma.post.findMany();
 }
 
-export async function deletePost(slug: string, 
-  post: Pick<Post, "slug" | "title" | "markdown">
-  ){
-  return prisma.post.deleteMany({ where: { slug } });
+export async function deletePost(){
+  return prisma.post.deleteMany({ where: { } });
 
 }
 

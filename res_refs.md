@@ -10,8 +10,14 @@ https://daily-dev-tips.com/posts/remix-shared-layouts-a-first-look/
 
 https://getbootstrap.com/docs/5.2/components/navbar/
 
+https://bobbyhadz.com/blog/react-map-array-reverse
+
 
 next projects 
 https://github.com/remix-run/examples/tree/main/form-to-notion-db
 
 https://github.com/remix-run/examples/tree/main/gdpr-cookie-consent
+
+https://github.com/remix-run/examples/tree/main/socket.io
+
+https://www.npmjs.com/package/bcryptjs
